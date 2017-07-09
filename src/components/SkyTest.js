@@ -5,7 +5,6 @@ import * as SkyActions from '../actions/SkyActions';
 
 import Selections from './Selections'
 import Basket from './Basket'
-import Users from './Users'
 
 class SkyTest extends Component {
 
@@ -66,7 +65,7 @@ class SkyTest extends Component {
     } else {
       confirmationStr = `Thank you for ordering ${basketNames.join(', ')}.`
     }
-    
+
     let confirmation
     if (confirmationToggle) {
       confirmation =
