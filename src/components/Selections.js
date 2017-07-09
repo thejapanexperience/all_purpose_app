@@ -8,7 +8,6 @@ class Selections extends Component {
     let { title, choices, location, addToBasket, removeFromBasket } = this.props
 
     let availableChoices
-    let visible
     let onClickFunction
 
     let filteredChoices = choices.filter(choice => {
@@ -18,24 +17,32 @@ class Selections extends Component {
     if (filteredChoices){
       availableChoices = filteredChoices.map(choice => {
         if (choice.checked === false){
-          visible = 'noCheck';
           onClickFunction = () => addToBasket(choice)
+          return(
+            <div key={choice.name} className="choice" onClick={onClickFunction}>
+              <div className="flexLine">
+                <span className="checkBox">
+                  <span className='noCheck'>✔</span>
+                </span>
+                <span className="choiceText">{choice.name}</span>
+              </div>
+            </div>)
         }
-        if (choice.checked === true){
-          visible = 'check'
-          onClickFunction = () => removeFromBasket(choice)
-        }
-        return(
-          <div key={choice.name} className="choice" onClick={onClickFunction}>
-            <div className="flexLine">
-              <span className="checkBox">
-                <span className={visible}>✔</span>
-              </span>
-              <span className="choiceText">{choice.name}</span>
-            </div>
-          </div>
 
-        )
+        if (choice.checked === true){
+          onClickFunction = () => removeFromBasket(choice)
+          return(
+            <div key={choice.name} className="choice" onClick={onClickFunction}>
+              <div className="flexLine">
+                <span className="checkBox">
+                  <span className='check'>✔</span>
+                </span>
+                <span className="choiceText">{choice.name}</span>
+              </div>
+            </div>)
+        }
+
+
       })
     }
 
