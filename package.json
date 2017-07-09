@@ -1,7 +1,7 @@
 {
-  "name": "richardmandsdotcom",
+  "name": "Sky Europe Test",
   "version": "0.1.0",
-  "description": "Personal Website",
+  "description": "Technical Demonstration",
   "engines": {
     "node": "7.8.0"
   },
