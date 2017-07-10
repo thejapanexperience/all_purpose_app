@@ -10,7 +10,8 @@ class WaymarkTest extends Component {
 
   constructor(){
     super()
-    this.state = { overTen : false,
+    this.state = {
+      overTen : false,
       data : [
     {
       "Name": "lada",
@@ -124,7 +125,6 @@ class WaymarkTest extends Component {
 
   reverseNames(data){
     let newData = data.map(person => {
-      console.log('person: ', person)
       let name = person.Name
       let arr = name.split('');
       let reverseArray = arr.reverse();
@@ -161,7 +161,6 @@ class WaymarkTest extends Component {
   }
 
   saveFile(data){
-    console.log('save file');
     let result
     function convertArrayOfObjectsToCSV(args) {
         var ctr, keys, columnDelimiter, lineDelimiter;
@@ -190,7 +189,6 @@ class WaymarkTest extends Component {
             });
             result += lineDelimiter;
         });
-        console.log('result: ', result)
         return result;
     }
 
@@ -228,16 +226,15 @@ class WaymarkTest extends Component {
   render() {
     const { } = this.props;
     const { data, dataNew } = this.state;
-    console.log('data: ', data)
 
-    // axios.get('https://techtestpersonapi.azurewebsites.net/api/GETPersonsTechTestAPI?code=Z5Dm297Ijn9weSo75EVtsJHN9HoVE0fgJt8zIGXWV4ZOOCGNpaYBtw==')
-    // .then((err, res) => {
-    //   console.log('res: ', res)
-    // })
-    //
-    // $.get(`https://techtestpersonapi.azurewebsites.net/api/GETPersonsTechTestAPI?code=Z5Dm297Ijn9weSo75EVtsJHN9HoVE0fgJt8zIGXWV4ZOOCGNpaYBtw==` , response => {
-    //   console.log('response: ', response)
-    // })
+    axios.get('https://techtestpersonapi.azurewebsites.net/api/GETPersonsTechTestAPI?code=Z5Dm297Ijn9weSo75EVtsJHN9HoVE0fgJt8zIGXWV4ZOOCGNpaYBtw==')
+    .then((err, res) => {
+      console.log('res: ', res)
+    })
+
+    $.get(`https://techtestpersonapi.azurewebsites.net/api/GETPersonsTechTestAPI?code=Z5Dm297Ijn9weSo75EVtsJHN9HoVE0fgJt8zIGXWV4ZOOCGNpaYBtw==` , response => {
+      console.log('response: ', response)
+    })
 
 
 let displayData
@@ -296,7 +293,7 @@ if (this.state.overTen === false){
           {displayData}
         </div>
         <div className="buttonBox">
-          <div className="waymarkButtonReset" onClick={() => this.reset(data)}>
+          <div className="waymarkButtonReset" onClick={() => this.reset()}>
             <div className="waymarkButtonText">Reset</div>
           </div>
         </div>
