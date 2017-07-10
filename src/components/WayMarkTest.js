@@ -4,8 +4,6 @@ import axios from 'axios';
 import jsonp from 'jsonp';
 import $ from 'jquery';
 
-import * as WaymarkActions from '../actions/WaymarkActions';
-
 class WaymarkTest extends Component {
 
   constructor(){
