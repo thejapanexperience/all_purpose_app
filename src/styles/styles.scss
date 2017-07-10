@@ -228,9 +228,9 @@ div {
 
 // ----------------------------------------------------------------------------------------------------------------------------------------
 // ----------------------------------------------------------------------------------------------------------------------------------------
-//SkyTest --------------------------------------------------------------------
+//Waymark Test --------------------------------------------------------------------
 
-.skyBox {
+.waymarkBox {
   @extend .flex;
   position: relative;
   width: 100%;
@@ -240,156 +240,51 @@ div {
   margin-bottom: 30px;
 }
 
-.bannerBox {
-  @extend .flex;
+.headerText {
   width: 100%;
-  height: 100px;
-  border: 2px solid white;
-}
-
-.banner {
-  @extend .flex;
   margin: auto;
-  width: 100%;
-  height: 100px;
-}
-
-.usersBox {
-  @extend .flex;
-  width: 100%;
-  height: 100px;
-  margin: auto;
-  padding: 30px;
-}
-
-.user {
-  @extend .flex;
-  width: 32%;
-  height: 100%;
-  margin: auto;
-  background-color: rgba(255,165,0,0.34);
-  cursor: pointer;
-}
-.activeUser {
-  @extend .user;
-  background-color: rgba(0,100,255,0.21);
-}
-
-.userText {
   font-size: 20px;
   color: white;
-  margin: auto;
-  pointer-events: none;
+  margin-bottom: 20px;
 }
-
-.selectionBox {
+.dataDisplay {
   @extend .flex;
-  margin-top: 10px;
-  margin-bottom: 10px;
   width: 100%;
-  height: 300px;
-  padding: 30px;
-  padding-top: 0;
+  padding: 20px;
 }
-
-.selection {
-  width: 32%;
-  height: 100%;
+.dataEach {
   margin: auto;
+  width: 30%;
+  font-size: 15px;
   color: white;
-  border: solid white 1px;
+  padding: 1%;
+}
+.dataEachOverTen {
+  @extend .dataEach;
+  background-color: purple;
 }
 
-.selectionTitle {
-  padding: 5px;
-  width: 100%;
-  height: 15%;
-  text-align: left;
-  font-size: 20px;
-  color: white;
-}
-
-.choice {
-  width: 100%;
-  height: 15%;
-  cursor: pointer;
-  padding-left: 5px;
-}
-.basketChoice {
-  @extend .choice;
-  pointer-events: none;
-}
-
-.flexLine {
-  display: flex;
-  pointer-events: none;
-}
-
-.checkBox {
-  border: 1px solid white;
-  width: 10px;
-  height: 10px;
-  margin: auto;
-  pointer-events: none;
-}
-
-.check {
-  visibility: visible;
-  margin: auto;
-  pointer-events: none;
-}
-
-.noCheck {
-  visibility: hidden;
-  pointer-events: none;
-}
-
-.choiceText {
-  @extend .selectionTitle;
-  margin: auto;
-  margin-left: 5px;
-  pointer-events: none;
-}
-
-.checkoutBox {
+.buttonBox {
   @extend .flex;
-  margin: auto;
-  width: 80%;
+  width: 100%;
   height: 50px;
-  background-color: navy;
+}
+
+.waymarkButton {
+  @extend .flex;
+  margin: auto;
+  height: 100%;
+  width: 23%;
+  background-color: orange;
   cursor: pointer;
 }
+.waymarkButtonReset {
+  @extend .waymarkButton;
+  background-color: red;
+}
 
-.checkout {
-  @extend .flex;
+.waymarkButtonText {
+  color: white;
   margin: auto;
   pointer-events: none;
-}
-.checkoutText {
-  font-size: 18px;
-  margin: auto;
-  pointer-events: none;
-  color: white;
-}
-
-.confirmationBox {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: black;
-}
-
-.confirmation {
-  @extend .flex;
-  width: 80%;
-  height: 100%;
-  margin: auto;
-}
-
-.confirmationText {
-  margin: auto;
-  font-size: 40px;
-  color: white;
 }
