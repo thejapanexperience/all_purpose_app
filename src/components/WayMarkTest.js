@@ -18,6 +18,7 @@ class WaymarkTest extends Component {
     this.reverseNames = this.reverseNames.bind(this)
     this.sortByAge = this.sortByAge.bind(this)
     this.reset = this.reset.bind(this)
+    this.clearData = this.clearData.bind(this)
     this.olderThanTen = this.olderThanTen.bind(this)
     this.saveFile = this.saveFile.bind(this)
     this.getData = this.getData.bind(this)
@@ -124,6 +125,14 @@ class WaymarkTest extends Component {
     })
   }
 
+  clearData(){
+
+    this.setState({
+      data : [],
+      dataOriginal : []
+    })
+  }
+
   getData(){
     axios.get('/api/waymark')
     .then((response, error) => {
@@ -186,9 +195,6 @@ if (data.length === 0){
 
     return (
       <div className="waymarkBox">
-        <div className="headerText">
-          Data
-        </div>
         <div className="buttonBox">
           <div className="waymarkButton" onClick={() => this.getData()}>
             <div className="waymarkButtonText">Get Data</div>
@@ -212,6 +218,9 @@ if (data.length === 0){
         <div className="buttonBox">
           <div className="waymarkButtonReset" onClick={() => this.reset()}>
             <div className="waymarkButtonText">Reset</div>
+          </div>
+          <div className="waymarkButtonReset" onClick={() => this.clearData()}>
+            <div className="waymarkButtonText">Clear Data</div>
           </div>
         </div>
       </div>
