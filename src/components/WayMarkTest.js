@@ -14,110 +14,7 @@ class WaymarkTest extends Component {
       dataOriginal : [],
       initialized : false
     }
-//       data : [
-//     {
-//       "Name": "lada",
-//       "Id": 1,
-//       "Age": 1
-//     },
-//     {
-//       "Name": "lava",
-//       "Id": 2,
-//       "Age": 15
-//     },
-//     {
-//       "Name": "lhannah",
-//       "Id": 3,
-//       "Age": 16
-//     },
-//     {
-//       "Name": "lotto",
-//       "Id": 4,
-//       "Age": 9
-//     },
-//     {
-//       "Name": "lanna",
-//       "Id": 5,
-//       "Age": 18
-//     },
-//     {
-//       "Name": "reinier",
-//       "Id": 6,
-//       "Age": 20
-//     },
-//     {
-//       "Name": "maham",
-//       "Id": 7,
-//       "Age": 22
-//     },
-//     {
-//       "Name": "sahas",
-//       "Id": 8,
-//       "Age": 24
-//     },
-//     {
-//       "Name": "emme",
-//       "Id": 9,
-//       "Age": 41
-//     },
-//     {
-//       "Name": "aviva",
-//       "Id": 10,
-//       "Age": 8
-//     }
-//   ],
-//   dataOriginal : [
-//   {
-//     "Name": "lada",
-//     "Id": 1,
-//     "Age": 1
-//   },
-//   {
-//     "Name": "lava",
-//     "Id": 2,
-//     "Age": 15
-//   },
-//   {
-//     "Name": "lhannah",
-//     "Id": 3,
-//     "Age": 16
-//   },
-//   {
-//     "Name": "otto",
-//     "Id": 4,
-//     "Age": 9
-//   },
-//   {
-//     "Name": "lanna",
-//     "Id": 5,
-//     "Age": 18
-//   },
-//   {
-//     "Name": "reinier",
-//     "Id": 6,
-//     "Age": 20
-//   },
-//   {
-//     "Name": "maham",
-//     "Id": 7,
-//     "Age": 22
-//   },
-//   {
-//     "Name": "sahas",
-//     "Id": 8,
-//     "Age": 24
-//   },
-//   {
-//     "Name": "emme",
-//     "Id": 9,
-//     "Age": 41
-//   },
-//   {
-//     "Name": "aviva",
-//     "Id": 10,
-//     "Age": 8
-//   }
-// }
+
     this.reverseNames = this.reverseNames.bind(this)
     this.sortByAge = this.sortByAge.bind(this)
     this.reset = this.reset.bind(this)
@@ -221,19 +118,16 @@ class WaymarkTest extends Component {
   }
 
   reset(){
-    console.log('reset');
     let temp = this.state.dataOriginal.slice()
-    console.log('temp: ', temp)
     this.setState({
       data : temp
     })
   }
 
   getData(){
-    axios.get('/api/burgers')
+    axios.get('/api/waymark')
     .then((response, error) => {
       console.log('response: ', response.data)
-      console.log('error: ', error)
       let original = response.data.slice()
       this.setState({
         data : response.data,
