@@ -13,3 +13,6 @@ Check it out on Heroku <a target="blank" href="https://gentle-fjord-88011.heroku
 * 'npm run open:dist' to start distribution srcServer
 
 Check out src/components/WayMarkTest.js for code specific to this project
+
+*** Updated branch with Express Server / Data saved to MongoDB / successful loading of non-hardcoded data can be found here:
+https://github.com/thejapanexperience/waymark_test/tree/updated-with-server
