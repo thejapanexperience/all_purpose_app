@@ -19,9 +19,9 @@ Check out src/components/WayMarkTest.js for code specific to this project
 *** HEROKU <a target="blank" href="https://fierce-wave-64427.herokuapp.com/">HERE</a>.
 
 Express Server
-tools/distServerExpress.js
-tools/routes/api.js
-tools/routes/waymark.js
+* tools/distServerExpress.js
+* tools/routes/api.js
+* tools/routes/waymark.js
 
 MongoDB / Mongoose
-tools/models/Waymark.js
+* tools/models/Waymark.js
