@@ -10,115 +10,120 @@ class WaymarkTest extends Component {
     super()
     this.state = {
       overTen : false,
-      data : [
-    {
-      "Name": "lada",
-      "Id": 1,
-      "Age": 1
-    },
-    {
-      "Name": "lava",
-      "Id": 2,
-      "Age": 15
-    },
-    {
-      "Name": "lhannah",
-      "Id": 3,
-      "Age": 16
-    },
-    {
-      "Name": "lotto",
-      "Id": 4,
-      "Age": 9
-    },
-    {
-      "Name": "lanna",
-      "Id": 5,
-      "Age": 18
-    },
-    {
-      "Name": "reinier",
-      "Id": 6,
-      "Age": 20
-    },
-    {
-      "Name": "maham",
-      "Id": 7,
-      "Age": 22
-    },
-    {
-      "Name": "sahas",
-      "Id": 8,
-      "Age": 24
-    },
-    {
-      "Name": "emme",
-      "Id": 9,
-      "Age": 41
-    },
-    {
-      "Name": "aviva",
-      "Id": 10,
-      "Age": 8
+      data : [],
+      dataOriginal : [],
+      initialized : false
     }
-  ],
-  dataOriginal : [
-  {
-    "Name": "lada",
-    "Id": 1,
-    "Age": 1
-  },
-  {
-    "Name": "lava",
-    "Id": 2,
-    "Age": 15
-  },
-  {
-    "Name": "lhannah",
-    "Id": 3,
-    "Age": 16
-  },
-  {
-    "Name": "otto",
-    "Id": 4,
-    "Age": 9
-  },
-  {
-    "Name": "lanna",
-    "Id": 5,
-    "Age": 18
-  },
-  {
-    "Name": "reinier",
-    "Id": 6,
-    "Age": 20
-  },
-  {
-    "Name": "maham",
-    "Id": 7,
-    "Age": 22
-  },
-  {
-    "Name": "sahas",
-    "Id": 8,
-    "Age": 24
-  },
-  {
-    "Name": "emme",
-    "Id": 9,
-    "Age": 41
-  },
-  {
-    "Name": "aviva",
-    "Id": 10,
-    "Age": 8
-  }
-]}
+//       data : [
+//     {
+//       "Name": "lada",
+//       "Id": 1,
+//       "Age": 1
+//     },
+//     {
+//       "Name": "lava",
+//       "Id": 2,
+//       "Age": 15
+//     },
+//     {
+//       "Name": "lhannah",
+//       "Id": 3,
+//       "Age": 16
+//     },
+//     {
+//       "Name": "lotto",
+//       "Id": 4,
+//       "Age": 9
+//     },
+//     {
+//       "Name": "lanna",
+//       "Id": 5,
+//       "Age": 18
+//     },
+//     {
+//       "Name": "reinier",
+//       "Id": 6,
+//       "Age": 20
+//     },
+//     {
+//       "Name": "maham",
+//       "Id": 7,
+//       "Age": 22
+//     },
+//     {
+//       "Name": "sahas",
+//       "Id": 8,
+//       "Age": 24
+//     },
+//     {
+//       "Name": "emme",
+//       "Id": 9,
+//       "Age": 41
+//     },
+//     {
+//       "Name": "aviva",
+//       "Id": 10,
+//       "Age": 8
+//     }
+//   ],
+//   dataOriginal : [
+//   {
+//     "Name": "lada",
+//     "Id": 1,
+//     "Age": 1
+//   },
+//   {
+//     "Name": "lava",
+//     "Id": 2,
+//     "Age": 15
+//   },
+//   {
+//     "Name": "lhannah",
+//     "Id": 3,
+//     "Age": 16
+//   },
+//   {
+//     "Name": "otto",
+//     "Id": 4,
+//     "Age": 9
+//   },
+//   {
+//     "Name": "lanna",
+//     "Id": 5,
+//     "Age": 18
+//   },
+//   {
+//     "Name": "reinier",
+//     "Id": 6,
+//     "Age": 20
+//   },
+//   {
+//     "Name": "maham",
+//     "Id": 7,
+//     "Age": 22
+//   },
+//   {
+//     "Name": "sahas",
+//     "Id": 8,
+//     "Age": 24
+//   },
+//   {
+//     "Name": "emme",
+//     "Id": 9,
+//     "Age": 41
+//   },
+//   {
+//     "Name": "aviva",
+//     "Id": 10,
+//     "Age": 8
+//   }
+// }
     this.reverseNames = this.reverseNames.bind(this)
     this.sortByAge = this.sortByAge.bind(this)
     this.reset = this.reset.bind(this)
     this.olderThanTen = this.olderThanTen.bind(this)
     this.saveFile = this.saveFile.bind(this)
+    this.getData = this.getData.bind(this)
   }
 
   reverseNames(data){
@@ -216,47 +221,44 @@ class WaymarkTest extends Component {
   }
 
   reset(){
+    console.log('reset');
+    let temp = this.state.dataOriginal.slice()
+    console.log('temp: ', temp)
     this.setState({
-      data : this.state.dataOriginal
+      data : temp
+    })
+  }
+
+  getData(){
+    axios.get('/api/burgers')
+    .then((response, error) => {
+      console.log('response: ', response.data)
+      console.log('error: ', error)
+      let original = response.data.slice()
+      this.setState({
+        data : response.data,
+        dataOriginal : original,
+        initialized : true
+      })
     })
   }
 
   render() {
+
     const { } = this.props;
-    const { data, dataNew } = this.state;
+    const { data, initialized } = this.state;
 
-    axios.get('https://techtestpersonapi.azurewebsites.net/api/GETPersonsTechTestAPI?code=Z5Dm297Ijn9weSo75EVtsJHN9HoVE0fgJt8zIGXWV4ZOOCGNpaYBtw==')
-    .then((err, res) => {
-      console.log('res: ', res)
-    })
-
-    $.get(`https://techtestpersonapi.azurewebsites.net/api/GETPersonsTechTestAPI?code=Z5Dm297Ijn9weSo75EVtsJHN9HoVE0fgJt8zIGXWV4ZOOCGNpaYBtw==` , response => {
-      console.log('response: ', response)
-    })
-
+    if(!initialized){
+      this.getData()
+    }
 
 let displayData
-if (this.state.overTen === false){
-  displayData = data.map(person => {
-    return(
-      <div className="dataEach" key={person.Id}>
-        Name : {person.Name} <br/>
-        Id : {person.Id} <br/>
-        Age : {person.Age} <br/>
-      </div>
-    )
-  })
+
+if (data.length === 0){
+  displayData = <div className="dataEachOverTen" >No Data</div>
 } else {
-  displayData = data.map(person => {
-    if (person.Age > 10){
-      return(
-        <div className="dataEachOverTen" key={person.Id}>
-          Name : {person.Name} <br/>
-          Id : {person.Id} <br/>
-          Age : {person.Age} <br/>
-        </div>
-      )
-    } else {
+  if (this.state.overTen === false){
+    displayData = data.map(person => {
       return(
         <div className="dataEach" key={person.Id}>
           Name : {person.Name} <br/>
@@ -264,8 +266,28 @@ if (this.state.overTen === false){
           Age : {person.Age} <br/>
         </div>
       )
-    }
-  })
+    })
+  } else {
+    displayData = data.map(person => {
+      if (person.Age > 10){
+        return(
+          <div className="dataEachOverTen" key={person.Id}>
+            Name : {person.Name} <br/>
+            Id : {person.Id} <br/>
+            Age : {person.Age} <br/>
+          </div>
+        )
+      } else {
+        return(
+          <div className="dataEach" key={person.Id}>
+            Name : {person.Name} <br/>
+            Id : {person.Id} <br/>
+            Age : {person.Age} <br/>
+          </div>
+        )
+      }
+    })
+  }
 }
 
     return (
@@ -274,6 +296,9 @@ if (this.state.overTen === false){
           Data
         </div>
         <div className="buttonBox">
+          <div className="waymarkButton" onClick={() => this.getData()}>
+            <div className="waymarkButtonText">Get Data</div>
+          </div>
           <div className="waymarkButton" onClick={() => this.reverseNames(data)}>
             <div className="waymarkButtonText">Reverse Names</div>
           </div>
