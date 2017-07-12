@@ -14,7 +14,7 @@ Check it out on Heroku <a target="blank" href="https://gentle-fjord-88011.heroku
 
 Check out src/components/WayMarkTest.js for code specific to this project
 
-*** updated version with server and no bugs! Data is saved into a MongoDB database via mongoose.
+*** updated version with Express server and no bugs! Data is downloaded from the API and saved into a MongoDB database via mongoose.
 
 *** HEROKU <a target="blank" href="https://fierce-wave-64427.herokuapp.com/">HERE</a>.
 
