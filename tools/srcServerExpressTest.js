@@ -13,8 +13,8 @@ import http from 'http';
 // const $ = require('jquery');
 
 // SET SERVER PORT
-const PORT = process.env.PORT || 8000;
-const MONGODB_URI = process.env.MONGODB_URI || `mongodb://localhost/AllPurposeApp001`
+const PORT = process.env.PORT || 8001;
+const MONGODB_URI = process.env.MONGODB_URI || `mongodb://localhost/TestDB`
 
 // MONGOOSE
 const mongoose = require('mongoose')
