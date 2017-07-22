@@ -15,7 +15,7 @@ const HomePage = () => {
                 richardmands.com
               </div>
               <div className="nav1Text">
-                | Mini-Project
+                | Technical Demonstration
               </div>
             </div>
             <div className="nav2" />
