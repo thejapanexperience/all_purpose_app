@@ -300,6 +300,7 @@ div {
   position: relative;
   padding: 30px;
   width: 100%;
+  justify-content: flex-end;
   // background-color: blue;
 }
 
@@ -307,8 +308,9 @@ div {
   @extend .flex;
   // flex-direction: column;
   position: relative;
-  width: 30%;
-  margin: auto;
+  width: 27%;
+  margin: 2%;
+  padding: 1%;
   margin-top: 50px;
   min-height: 50px;
   border: solid white 2px;
@@ -389,7 +391,7 @@ div {
 }
 .userDetails {
   @extend .userName;
-  @include responsive-font(2vw, 12px, 18px, 18px);
+  @include responsive-font(2vw, 12px, 16px, 18px);
   margin-left: 0;
 }
 

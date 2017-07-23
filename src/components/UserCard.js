@@ -6,7 +6,6 @@ class UserCard extends Component {
   render() {
 
     let { user, show, index } = this.props;
-    console.log('show: ', show)
 
     let visibility = "userCard"
 
@@ -50,9 +49,8 @@ class UserCard extends Component {
 
           <div className="userDetailsBox">
             <div className="userDetails">
-              Sex: {user.gender} <br/>
-              Phone: {user.cell} <br/>
-              Email: {user.email} <br/>
+              {user.gender} | {user.cell}<br/>
+              {user.email} <br/>
               City: {user.location.city} <br/>
               Street: {user.location.street} <br/>
               Nationality: {user.nat} <br/>
