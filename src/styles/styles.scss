@@ -251,7 +251,7 @@ div {
 .buttonBox {
   @extend .flex;
   width: 100%;
-  height: 50px;
+  height: 100px;
   margin-top: 10px;
 }
 
@@ -259,8 +259,9 @@ div {
   @extend .flex;
   margin: auto;
   height: 100%;
-  width: 18%;
+  width: 80%;
   background-color: orange;
+  border: 3px solid white;
   cursor: pointer;
 }
 
@@ -268,6 +269,7 @@ div {
   color: white;
   margin: auto;
   pointer-events: none;
+  font-size: 25px;
 }
 
 
@@ -299,8 +301,9 @@ div {
   @extend .flex;
   position: relative;
   padding: 30px;
+  padding-top: 10px;
   width: 100%;
-  justify-content: flex-end;
+  justify-content: center;
   // background-color: blue;
 }
 
@@ -308,7 +311,7 @@ div {
   @extend .flex;
   // flex-direction: column;
   position: relative;
-  width: 27%;
+  width: 26%;
   margin: 2%;
   padding: 1%;
   margin-top: 50px;
@@ -321,6 +324,12 @@ div {
   -moz-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
+  @media screen and (max-width: 1200px){
+  width: 40%;
+  }
+  @media screen and (max-width: 900px){
+  width: 90%;
+  }
 }
 .userCardShow {
   @extend .userCard;
@@ -337,20 +346,21 @@ div {
   opacity: 1;
   visibility: visible;
   background-color: rgba(0, 128, 116, 0.66);
-  -webkit-transition: 1s;
-  -moz-transition: 1s;
-  -o-transition: 1s;
-  transition: 1s;
-  -webkit-transition-delay: 1s;
-  -moz-transition-delay: 1s;
-  -o-transition-delay: 1s;
-  transition-delay: 1s;
+  -webkit-transition: 2s;
+  -moz-transition: 2s;
+  -o-transition: 2s;
+  transition: 2s;
+  -webkit-transition-delay: 0.5s;
+  -moz-transition-delay: 0.5s;
+  -o-transition-delay: 0.5s;
+  transition-delay: 0.5s;
 }
 
 .nameImageBox{
   @extend .flex;
   width: 100%;
   padding-top: 20px;
+  pointer-events: none;
 }
 
 .userNameBox {
@@ -360,13 +370,20 @@ div {
   width: 100%;
   padding: 8px;
   padding-top: 0;
+  pointer-events: none;
 }
 .userName {
   @extend .flex;
   color: white;
-  @include responsive-font(3vw, 16px, 40px, 20px);
+  @include responsive-font(2vw, 16px, 40px, 20px);
   line-height: 150%;
   margin: auto;
+  @media screen and (max-width: 1200px){
+    @include responsive-font(3vw, 24px, 50px, 20px);
+  }
+  @media screen and (max-width: 900px){
+    @include responsive-font(4vw, 24px, 60px, 20px);
+  }
 }
 
 .userCardImageBox {
@@ -374,12 +391,14 @@ div {
   width: 100%;
   padding-bottom: 0;
   padding-top: 10px;
+  pointer-events: none;
 }
 .userCardImage {
   width: 50%;
   height: 100%;
   margin: auto;
   border-radius: 5%;
+  pointer-events: none;
 }
 
 .userDetailsBox {
@@ -388,11 +407,19 @@ div {
   width: 100%;
   border-top: 2px solid white;
   padding-top: 8px;
+  pointer-events: none;
 }
 .userDetails {
   @extend .userName;
-  @include responsive-font(2vw, 12px, 16px, 18px);
+  @include responsive-font(1vw, 6px, 16px, 18px);
   margin-left: 0;
+  pointer-events: none;
+  @media screen and (max-width: 1200px){
+    @include responsive-font(1vw, 14px, 16px, 18px);
+  }
+  @media screen and (max-width: 900px){
+    @include responsive-font(1vw, 14px, 16px, 18px);
+  }
 }
 
 .cornerButtons {
@@ -404,12 +431,30 @@ div {
   max-width: 100px;
   border-radius: 50%;
   border: 2px solid white;
+  cursor: pointer;
+  @media screen and (max-width: 1200px){
+    height: 6vw;
+    width: 6vw;
+  }
+  @media screen and (max-width: 900px){
+    height: 8vw;
+    width: 8vw;
+  }
 }
+
 .editButtonBox {
   @extend .cornerButtons;
   background-color: orange;
   top: -1.5vw;
   left: -1.5vw;
+  @media screen and (max-width: 1200px){
+    top: -2.25vw;
+    left: -2.25vw;
+  }
+  @media screen and (max-width: 900px){
+    top: -3vw;
+    left: -3vw;
+  }
 }
 
 .deleteButtonBox {
@@ -417,6 +462,14 @@ div {
   background-color: red;
   bottom: -1.5vw;
   right: -1.5vw;
+  @media screen and (max-width: 1200px){
+    bottom: -2.25vw;
+    right: -2.25vw;
+  }
+  @media screen and (max-width: 900px){
+    bottom: -3vw;
+    right: -3vw;
+  }
 }
 
 .editButton {
@@ -433,6 +486,7 @@ div {
   color: white;
   opacity: 1;
   margin: auto;
+  pointer-events: none;
 }
 .deleteButtonText {
   @extend .editButtonText;
