@@ -9,45 +9,62 @@ class AllPurposeApp extends Component {
     super()
     this.state = {
       users : [],
-      initialized : false
+      initialized : false,
+      show : false,
     }
-    this.getData = this.getData.bind(this)
+    this.getData1 = this.getData1.bind(this)
+    this.getData2 = this.getData2.bind(this)
+    this.getData3 = this.getData3.bind(this)
   }
 
-  getData(){
+  getData1(){
+    this.setState({
+      show: false,
+    });
+    setTimeout(() => {
+      this.getData2();
+    },200);
+  }
+
+  getData2(){
     axios.get('/api/newuser')
     .then( response => {
-      console.log('response: ', response.data.results[0])
       let newUser = response.data.results[0];
       let users = this.state.users
       users.unshift(newUser)
       this.setState({
         users,
-        initialized : true
+        initialized : true,
       })
+      this.getData3()
     })
     .catch( error => {
       console.log('error: ', error)
     })
   }
 
+  getData3(){
+    setTimeout(() => {
+      this.setState({
+        show:true
+      })
+    }, 200)
+  }
+
   render() {
 
-    const { users, initialized } = this.state;
+    const { users, initialized, show } = this.state;
 
     let userCard = <div> NoData </div>;
 
-    let show = false;
-
     if(!initialized){
-      this.getData()
+      this.getData2()
     }
 
     if(users.length){
-      userCard = users.map(user => {
-        console.log('user: ', user)
+      userCard = users.map((user, i) => {
         return (
-          <UserCard key={user.login.md5} user={user} show={show}/>
+          <UserCard key={user.login.md5} user={user} show={show} index={i}/>
             )
           });
         }
@@ -56,8 +73,8 @@ class AllPurposeApp extends Component {
           <div className="appBox">
 
             <div className="buttonBox">
-              <div className="myButton1" onClick={() => this.getData()}>
-                <div className="myButton1Text">Get Data</div>
+              <div className="myButton1" onClick={() => this.getData1()}>
+                <div className="myButton1Text">Get New User</div>
               </div>
             </div>
             <div className="userCardBox">

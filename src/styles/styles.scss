@@ -112,7 +112,7 @@ div {
 
 .section {
   width: 90%;
-  max-width: 1024px;
+  max-width: 1600px;
   // height: 400px;
   height: auto;
   margin-left: auto;
@@ -305,9 +305,9 @@ div {
 
 .userCard {
   @extend .flex;
-  flex-direction: column;
+  // flex-direction: column;
   position: relative;
-  width: 40%;
+  width: 30%;
   margin: auto;
   margin-top: 50px;
   min-height: 50px;
@@ -315,16 +315,34 @@ div {
   border-radius: 5%;
   opacity: 0;
   visibility: hidden;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
 }
 .userCardShow {
   @extend .userCard;
   opacity: 1;
   visibility: visible;
   background-color: rgba(0, 128, 116, 0.33);
-  -webkit-transition: 0.99s;
-  -moz-transition: 0.99s;
-  -o-transition: 0.99s;
-  transition: 0.99s;
+  -webkit-transition: 1s;
+  -moz-transition: 1s;
+  -o-transition: 1s;
+  transition: 1s;
+}
+.userCardShow0 {
+  @extend .userCardShow;
+  opacity: 1;
+  visibility: visible;
+  background-color: rgba(0, 128, 116, 0.66);
+  -webkit-transition: 1s;
+  -moz-transition: 1s;
+  -o-transition: 1s;
+  transition: 1s;
+  -webkit-transition-delay: 1s;
+  -moz-transition-delay: 1s;
+  -o-transition-delay: 1s;
+  transition-delay: 1s;
 }
 
 .nameImageBox{
@@ -382,19 +400,20 @@ div {
   max-height: 100px;
   width: 4vw;
   max-width: 100px;
-  top: -1.5vw;
   border-radius: 50%;
   border: 2px solid white;
 }
 .editButtonBox {
   @extend .cornerButtons;
   background-color: orange;
+  top: -1.5vw;
   left: -1.5vw;
 }
 
 .deleteButtonBox {
   @extend .cornerButtons;
   background-color: red;
+  bottom: -1.5vw;
   right: -1.5vw;
 }
 

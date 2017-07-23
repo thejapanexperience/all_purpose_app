@@ -3,43 +3,18 @@ import { connect } from 'react-redux';
 
 class UserCard extends Component {
 
-  constructor(){
-    super()
-    this.state = {
-      showIt : false
-    }
-    this.init = this.init.bind(this)
-  }
-
-  componentWillReceiveProps(nextProps){
-    this.setState({
-      showIt : false
-    })
-  }
-
-
-  init(){
-    console.log('in init()');
-    this.setState({
-      showIt : true
-    })
-  }
-
-
   render() {
 
-    let { user, show } = this.props;
-    let { showIt } = this.state;
+    let { user, show, index } = this.props;
+    console.log('show: ', show)
 
-    let visibility
+    let visibility = "userCard"
 
-    if(!show && !showIt){
-      setTimeout(() => {
-        this.init()
-      }, 1000)
+    show ? visibility = "userCardShow" : visibility = "userCard"
+
+    if (show && index === 0){
+      visibility = "userCardShow0"
     }
-
-    showIt ? visibility = "userCardShow" : visibility = "userCard"
 
     let userName = `${user.name.first} ${user.name.last}`;
 
@@ -72,7 +47,6 @@ class UserCard extends Component {
             </div>
 
           </div>
-
 
           <div className="userDetailsBox">
             <div className="userDetails">
